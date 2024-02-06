@@ -5,14 +5,16 @@ table {
   border: 1px solid #a9a9a9;
   border-radius: 10px;
   margin-top: 2em;
-  margin-left: 2em;
+  width: 8%;
 }
+
 
 .mat-column-brand,
 .mat-column-year,
 .mat-column-model,
 .mat-column-id,
-.mat-column-color {
+.mat-column-color, 
+.mat-column-actions {
   font-size: 1.2em;
 }
 

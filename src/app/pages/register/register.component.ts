@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormsComponent} from "../forms/forms.component";
+import {FormsComponent} from "../../shared/forms/forms.component";
 
 @Component({
   selector: 'app-register',
@@ -8,5 +8,5 @@ import {FormsComponent} from "../forms/forms.component";
 })
 export class RegisterComponent {
   btnText: string = "Cadastrar";
-  headerText: string = "Cadastro"
+  headerText: string = "Cadastro";
 }
