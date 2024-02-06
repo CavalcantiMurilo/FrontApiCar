@@ -1,0 +1,35 @@
+<div class="forms-register">
+  <h2 mat-dialog-title>Atualização</h2>
+
+  <div class="fields">
+
+    <mat-dialog-content>
+
+      <mat-form-field class="register-field">
+        <mat-label>Marca</mat-label>
+        <input matInput placeholder="Ex. Fiat">
+      </mat-form-field>
+
+      <mat-form-field class="register-field">
+        <mat-label>Modelo</mat-label>
+        <input matInput placeholder="Ex. Uno">
+      </mat-form-field>
+
+      <mat-form-field class="register-field">
+        <mat-label>Ano</mat-label>
+        <input matInput placeholder="Ex. 2010">
+      </mat-form-field>
+
+      <mat-form-field class="register-field">
+        <mat-label>Cor</mat-label>
+        <input matInput placeholder="Ex. Prata">
+      </mat-form-field>
+    </mat-dialog-content>
+  </div>
+
+  <mat-dialog-actions>
+    <button mat-button (click)="cancel()">Cancelar</button>
+    <button mat-button color="primary">Atualizar</button>
+  </mat-dialog-actions>
+
+</div>

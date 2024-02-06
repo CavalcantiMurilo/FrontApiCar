@@ -12,6 +12,18 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
+import {
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogModule,
+  MatDialogTitle
+} from "@angular/material/dialog";
+
+
 
 
 import { CarTableComponent } from './pages/car-table/car-table.component';
@@ -19,6 +31,8 @@ import { FormsComponent } from './shared/forms/forms.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { UpdateComponent } from './pages/update/update.component';
+import { UpdateDialogComponent } from './shared/update-dialog/update-dialog.component';
+import { RegisterDialogComponent } from './shared/register-dialog/register-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +41,9 @@ import { UpdateComponent } from './pages/update/update.component';
     FormsComponent,
     RegisterComponent,
     HeaderComponent,
-    UpdateComponent
+    UpdateComponent,
+    UpdateDialogComponent,
+    RegisterDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +55,15 @@ import { UpdateComponent } from './pages/update/update.component';
     MatTableModule,
     MatPaginatorModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatTooltip,
+    MatDialogModule,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
   ],
   providers: [
     provideAnimationsAsync()

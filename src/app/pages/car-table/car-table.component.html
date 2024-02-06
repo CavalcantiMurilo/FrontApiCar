@@ -1,46 +1,69 @@
 <app-forms btnText="filtrar"></app-forms>
 
-<table mat-table [dataSource]="carData">
+<div class="tabela">
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef>Id</th>
-    <td mat-cell *matCellDef="let car">{{ car.id }}</td>
-  </ng-container>
+  <button mat-icon-button class="action" id="add" matTooltip="Adicionar" [matMenuTriggerFor]="create">
+    <mat-icon>add_circle</mat-icon>
+  </button>
 
-  <ng-container matColumnDef="brand">
-    <th mat-header-cell *matHeaderCellDef>Marca</th>
-    <td mat-cell *matCellDef="let car">{{ car.brand }}</td>
-  </ng-container>
+  <mat-menu #create="matMenu">
+    <button mat-menu-item (click)="openRegisterDialog()">Cadastrar aqui</button>
+    <a routerLink="register">
+      <button mat-menu-item >Cadastrar em outra página</button>
+    </a>
+  </mat-menu>
 
-  <ng-container matColumnDef="model">
-    <th mat-header-cell *matHeaderCellDef>Modelo</th>
-    <td mat-cell *matCellDef="let car">{{ car.model }}</td>
-  </ng-container>
+  <table mat-table [dataSource]="carData">
 
-  <ng-container matColumnDef="year">
-    <th mat-header-cell *matHeaderCellDef>Ano</th>
-    <td mat-cell *matCellDef="let car">{{ car.year }}</td>
-  </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let car">{{ car.id }}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="color">
-    <th mat-header-cell *matHeaderCellDef>Cor</th>
-    <td mat-cell *matCellDef="let car">{{ car.color }}</td>
-  </ng-container>
-  
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>Ações</th>
-    <td mat-cell *matCellDef="let car">
-      <button mat-icon-button>
-        <mat-icon>border_color</mat-icon>
-      </button>
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="brand">
+      <th mat-header-cell *matHeaderCellDef>Marca</th>
+      <td mat-cell *matCellDef="let car">{{ car.brand }}</td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+    <ng-container matColumnDef="model">
+      <th mat-header-cell *matHeaderCellDef>Modelo</th>
+      <td mat-cell *matCellDef="let car">{{ car.model }}</td>
+    </ng-container>
 
-  <mat-paginator [pageSize]="[2]"
-                 showFirstLastButtons="true"
-                 aria-label="Select page of periodic elements">
-  </mat-paginator>
-</table>
+    <ng-container matColumnDef="year">
+      <th mat-header-cell *matHeaderCellDef>Ano</th>
+      <td mat-cell *matCellDef="let car">{{ car.year }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="color">
+      <th mat-header-cell *matHeaderCellDef>Cor</th>
+      <td mat-cell *matCellDef="let car">{{ car.color }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let car">
+        <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Editar">
+          <mat-icon>border_color</mat-icon>
+        </button>
+        <button mat-icon-button class="action" matTooltip="Deletar">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="openDialog()">Editar aqui</button>
+          <a routerLink="update">
+            <button mat-menu-item>Editar em outra página</button>
+          </a>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+
+    <mat-paginator [pageSize]="[2]"
+                   showFirstLastButtons="true"
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </table>
+</div>

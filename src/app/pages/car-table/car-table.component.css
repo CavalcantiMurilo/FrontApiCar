@@ -1,11 +1,22 @@
+a{
+  text-decoration: none;
+}
 
 
-table {
-  padding: 1em;
+
+.action mat-icon{
+  color: #3F51B5;
+}
+
+.tabela{
+  margin: 2em;
   border: 1px solid #a9a9a9;
   border-radius: 10px;
-  margin-top: 2em;
-  width: 8%;
+  padding: 1em;
+}
+
+#add{
+
 }
 
 
@@ -13,7 +24,7 @@ table {
 .mat-column-year,
 .mat-column-model,
 .mat-column-id,
-.mat-column-color, 
+.mat-column-color,
 .mat-column-actions {
   font-size: 1.2em;
 }
