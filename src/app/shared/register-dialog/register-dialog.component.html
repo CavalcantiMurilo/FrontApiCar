@@ -8,21 +8,25 @@
       <mat-form-field class="register-field">
         <mat-label>Marca</mat-label>
         <input matInput placeholder="Ex. Fiat" formControlName="brandCar">
+        <mat-error *ngIf="form.get('brandCar')?.invalid">{{getErrorMessage("brandCar")}}</mat-error>
       </mat-form-field>
 
       <mat-form-field class="register-field">
         <mat-label>Modelo</mat-label>
         <input matInput placeholder="Ex. Uno" formControlName="modelCar">
+        <mat-error *ngIf="form.get('modelCar')?.invalid">{{getErrorMessage("modelCar")}}</mat-error>
       </mat-form-field>
 
       <mat-form-field class="register-field">
         <mat-label>Ano</mat-label>
         <input matInput placeholder="Ex. 2010" formControlName="yearCar">
+        <mat-error *ngIf="form.get('yearCar')?.invalid">{{getErrorMessage("yearCar")}}</mat-error>
       </mat-form-field>
 
       <mat-form-field class="register-field">
         <mat-label>Cor</mat-label>
         <input matInput placeholder="Ex. Prata" formControlName="colorCar">
+        <mat-error *ngIf="form.get('colorCar')?.invalid">{{getErrorMessage("colorCar")}}</mat-error>
       </mat-form-field>
     </mat-dialog-content>
   </div>

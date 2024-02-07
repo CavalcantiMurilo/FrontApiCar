@@ -16,15 +16,14 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
-
 import {
   MatDialog,
   MatDialogActions,
   MatDialogClose,
   MatDialogContent,
   MatDialogModule,
-  MatDialogTitle
+  MatDialogTitle,
+  MAT_DIALOG_DATA,
 } from "@angular/material/dialog";
 
 
