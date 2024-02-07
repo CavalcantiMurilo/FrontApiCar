@@ -14,6 +14,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+
 import {
   MatDialog,
   MatDialogActions,
@@ -64,6 +68,8 @@ import { RegisterDialogComponent } from './shared/register-dialog/register-dialo
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [
     provideAnimationsAsync()

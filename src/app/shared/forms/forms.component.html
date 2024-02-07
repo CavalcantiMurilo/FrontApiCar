@@ -1,28 +1,30 @@
-<div class="forms-register">
+<form class="forms-register" [formGroup]="form">
   <div class="fields">
 
     <mat-form-field class="register-field">
       <mat-label>Marca</mat-label>
-      <input matInput placeholder="Ex. Fiat">
+      <input matInput placeholder="Ex. Fiat" formControlName="brand">
     </mat-form-field>
 
     <mat-form-field class="register-field">
       <mat-label>Modelo</mat-label>
-      <input matInput placeholder="Ex. Uno">
+      <input matInput placeholder="Ex. Uno" formControlName="model">
     </mat-form-field>
 
     <mat-form-field class="register-field">
       <mat-label>Ano</mat-label>
-      <input matInput placeholder="Ex. 2010">
+      <input matInput placeholder="Ex. 2010" formControlName="year">
     </mat-form-field>
 
     <mat-form-field class="register-field">
       <mat-label>Cor</mat-label>
-      <input matInput placeholder="Ex. Prata">
+      <input matInput placeholder="Ex. Prata" formControlName="color">
     </mat-form-field>
 
   </div>
-  <button mat-raised-button class="cancel">Cancelar</button>
+  <a routerLink="/">
+    <button mat-raised-button class="cancel">Cancelar</button>
+  </a>
   <button mat-raised-button color="primary">{{ btnText }}</button>
 
-</div>
+</form>

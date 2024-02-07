@@ -1,4 +1,4 @@
-<div class="forms-register">
+<form class="forms-register" [formGroup]="form">
   <h2 mat-dialog-title>Cadastro</h2>
 
   <div class="fields">
@@ -7,29 +7,29 @@
 
       <mat-form-field class="register-field">
         <mat-label>Marca</mat-label>
-        <input matInput placeholder="Ex. Fiat">
+        <input matInput placeholder="Ex. Fiat" formControlName="brandCar">
       </mat-form-field>
 
       <mat-form-field class="register-field">
         <mat-label>Modelo</mat-label>
-        <input matInput placeholder="Ex. Uno">
+        <input matInput placeholder="Ex. Uno" formControlName="modelCar">
       </mat-form-field>
 
       <mat-form-field class="register-field">
         <mat-label>Ano</mat-label>
-        <input matInput placeholder="Ex. 2010">
+        <input matInput placeholder="Ex. 2010" formControlName="yearCar">
       </mat-form-field>
 
       <mat-form-field class="register-field">
         <mat-label>Cor</mat-label>
-        <input matInput placeholder="Ex. Prata">
+        <input matInput placeholder="Ex. Prata" formControlName="colorCar">
       </mat-form-field>
     </mat-dialog-content>
   </div>
 
   <mat-dialog-actions>
     <button mat-button (click)="cancel()">Cancelar</button>
-    <button mat-button color="primary">Cadastrar</button>
+    <button mat-button color="primary" (click)="onSubmit()">Cadastrar</button>
   </mat-dialog-actions>
 
-</div>
+</form>

@@ -7,8 +7,8 @@ import { UpdateComponent } from './pages/update/update.component';
 const routes: Routes = [
   {path: '', component: CarTableComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'update', component: UpdateComponent},
-  
+  {path: 'update/:id', component: UpdateComponent},
+
 ];
 
 @NgModule({

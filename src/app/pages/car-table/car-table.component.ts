@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {FormsComponent} from "../../shared/forms/forms.component";
 import { Car } from '../../model/car';
 import { CarService } from '../../service/car.service';
@@ -7,6 +7,7 @@ import {update} from "@angular-devkit/build-angular/src/tools/esbuild/angular/co
 import {UpdateDialogComponent} from "../../shared/update-dialog/update-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {RegisterDialogComponent} from "../../shared/register-dialog/register-dialog.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-inicial',
@@ -14,16 +15,22 @@ import {RegisterDialogComponent} from "../../shared/register-dialog/register-dia
   styleUrl: './car-table.component.css'
 })
 export class CarTableComponent {
-  btnText: string = "Cadastrar"
+  btnText: string = "Cadastrar";
+
+
 
   carData: Observable<Car[]>;
 
   columnsToDisplay: string[] = ['id', 'brand', 'model', 'year', 'color', 'actions'];
 
- constructor(private carService: CarService, private dialog: MatDialog){
+ constructor(private carService: CarService, private dialog: MatDialog, private snackBar: MatSnackBar){
 
   this.carData = this.carService.list();
  }
+
+
+
+
   openDialog(): void {
     const dialogRef = this.dialog.open(UpdateDialogComponent, {
 
@@ -44,4 +51,5 @@ export class CarTableComponent {
 
     });
   }
+
 }
