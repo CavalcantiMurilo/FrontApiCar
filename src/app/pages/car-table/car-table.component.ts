@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
 import {FormsComponent} from "../../shared/forms/forms.component";
-import { Icar } from '../../model/Icar';
+import { ICar } from '../../model/ICar';
 import { CarService } from '../../service/car.service';
 import { Observable } from 'rxjs';
 import {update} from "@angular-devkit/build-angular/src/tools/esbuild/angular/compilation/parallel-worker";
@@ -19,7 +19,7 @@ import {MatPaginator} from "@angular/material/paginator";
 export class CarTableComponent {
   btnText: string = "Cadastrar";
 
-  carData: Observable<Icar[]>;
+  carData: Observable<ICar[]>;
 
   columnsToDisplay: string[] = ['id', 'brand', 'model', 'year', 'color', 'actions'];
 

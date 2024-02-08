@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CarService} from "../../service/car.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
-import {Icar} from "../../model/Icar";
+import {ICar} from "../../model/ICar";
 
 @Component({
   selector: 'app-update',
@@ -15,7 +15,7 @@ export class UpdateComponent {
   headerText: string = "Atualização de dados"
 
   form: FormGroup;
-  car!: Icar;
+  car!: ICar;
 
   constructor(private formBuilder: FormBuilder, private service: CarService, private snackBar: MatSnackBar, private router: Router) {
     this.form = this.formBuilder.group({

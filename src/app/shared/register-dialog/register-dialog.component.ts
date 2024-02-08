@@ -13,6 +13,7 @@ import {ActivatedRoute} from "@angular/router";
 export class RegisterDialogComponent implements OnInit{
 
   form: FormGroup;
+  date = new Date().getFullYear();
 
 
 
@@ -23,10 +24,10 @@ export class RegisterDialogComponent implements OnInit{
   ) {
     this.form = this.formBuilder.group({
       idCar:[null],
-      brandCar: ['', [Validators.required]],
-      modelCar: ['', [Validators.required]],
-      yearCar: ['', [Validators.required]],
-      colorCar: ['', [Validators.required]],
+      brandCar: ['', [Validators.required, Validators.maxLength(30)]],
+      modelCar: ['', [Validators.required, Validators.maxLength(30)]],
+      yearCar: ['', [Validators.required, Validators.minLength(4), Validators.max(this.date + 1)]],
+      colorCar: ['', [Validators.required, Validators.maxLength(30)]],
     })
   }
 
@@ -40,6 +41,14 @@ export class RegisterDialogComponent implements OnInit{
 
     if (field?.hasError('required')) {
       return 'Preencha o campo';
+    }
+
+    if (field?.hasError('max')) {
+      return 'Ano não suportado';
+    }
+
+    if (field?.hasError('maxlength')) {
+      return 'Excedeu o tamanho de caracteres';
     }
   }
 

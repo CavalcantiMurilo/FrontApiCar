@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Icar } from '../model/Icar';
+import { ICar } from '../model/ICar';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import {Router} from "@angular/router";
@@ -14,14 +14,14 @@ export class CarService {
   constructor(private http: HttpClient, private router: Router) { }
 
   list() {
-    return this.http.get<Icar[]>(this.baseApi);
+    return this.http.get<ICar[]>(this.baseApi);
   }
   listById(id: number) {
-    return this.http.get<Icar[]>(`${this.baseApi}/${id}`);
+    return this.http.get<ICar[]>(`${this.baseApi}/${id}`);
   }
 
-  save(record: Icar){
-    return this.http.post<Icar>(this.baseApi, record);
+  save(record: ICar){
+    return this.http.post<ICar>(this.baseApi, record);
   }
 
   delete(id: number){

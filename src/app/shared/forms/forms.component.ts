@@ -14,14 +14,15 @@ export class FormsComponent {
   @Input() btnText!: string;
 
   form: FormGroup;
+  date = new Date().getFullYear();
 
   constructor(private formBuilder: FormBuilder, private service: CarService, private snackBar: MatSnackBar, private router: Router) {
     this.form = this.formBuilder.group({
       idCar:[null],
-      brandCar: ['', [Validators.required]],
-      modelCar: ['', [Validators.required]],
-      yearCar: ['', [Validators.required]],
-      colorCar: ['', [Validators.required]],
+      brandCar: ['', [Validators.required, Validators.maxLength(30)]],
+      modelCar: ['', [Validators.required, Validators.maxLength(30)]],
+      yearCar: ['', [Validators.required, Validators.minLength(4), Validators.max(this.date + 1)]],
+      colorCar: ['', [Validators.required, Validators.maxLength(30)]],
     })
   }
 
@@ -31,6 +32,14 @@ export class FormsComponent {
 
     if (field?.hasError('required')) {
       return 'Preencha o campo';
+    }
+
+    if (field?.hasError('max')) {
+      return 'Ano não suportado';
+    }
+
+    if (field?.hasError('maxlength')) {
+      return 'Excedeu o tamanho de caracteres';
     }
   }
 

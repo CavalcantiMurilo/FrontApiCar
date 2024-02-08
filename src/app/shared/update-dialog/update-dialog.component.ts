@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Icar} from "../../model/Icar";
+import {ICar} from "../../model/ICar";
 import {ActivatedRoute} from "@angular/router";
 import {CarService} from "../../service/car.service";
 
@@ -13,13 +13,13 @@ import {CarService} from "../../service/car.service";
 export class UpdateDialogComponent implements OnInit{
 
   form: FormGroup;
-  car!: Icar;
+  car!: ICar;
 
   ngOnInit() {
 
   }
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Icar, public dialogRef: MatDialogRef<UpdateDialogComponent>, private formBuilder: FormBuilder, private route: ActivatedRoute, private carService: CarService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: ICar, public dialogRef: MatDialogRef<UpdateDialogComponent>, private formBuilder: FormBuilder, private route: ActivatedRoute, private carService: CarService) {
     this.form = this.formBuilder.group({
       idCar:[null],
       brandCar: ['', [Validators.required]],
