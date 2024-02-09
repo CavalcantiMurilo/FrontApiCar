@@ -43,7 +43,7 @@ export class UpdateDialogComponent implements OnInit{
 
     if (field?.hasError('required')) {
       return 'Preencha o campo';
-    }
+    }//
   }
 
   onUpdate(car: ICar, id: number){
