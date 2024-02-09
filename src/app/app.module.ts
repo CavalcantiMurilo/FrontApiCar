@@ -36,6 +36,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { UpdateComponent } from './pages/update/update.component';
 import { UpdateDialogComponent } from './shared/update-dialog/update-dialog.component';
 import { RegisterDialogComponent } from './shared/register-dialog/register-dialog.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { RegisterDialogComponent } from './shared/register-dialog/register-dialo
     HeaderComponent,
     UpdateComponent,
     UpdateDialogComponent,
-    RegisterDialogComponent
+    RegisterDialogComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

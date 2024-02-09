@@ -33,7 +33,7 @@
 
   <mat-dialog-actions>
     <button mat-button (click)="cancel()">Cancelar</button>
-    <button mat-button color="primary">Atualizar</button>
+    <button mat-button color="primary" (click)="onUpdate(this.form.value, car.idCar)">Atualizar</button>
   </mat-dialog-actions>
 
 </form>

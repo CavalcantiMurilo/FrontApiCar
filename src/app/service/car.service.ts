@@ -3,6 +3,7 @@ import { ICar } from '../model/ICar';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import {Router} from "@angular/router";
+import {ICarPage} from "../model/ICarPage";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class CarService {
     return this.http.get<ICar[]>(this.baseApi);
   }
   listById(id: number) {
-    return this.http.get<ICar[]>(`${this.baseApi}/${id}`);
+    return this.http.get<ICar>(`${this.baseApi}/${id}`);
   }
 
   save(record: ICar){
@@ -26,6 +27,10 @@ export class CarService {
 
   delete(id: number){
     return this.http.delete(`${this.baseApi}/${id}`);
+  }
+
+  update(record: ICar, id:number){
+    return this.http.put(`${this.baseApi}/${id}`, record);
   }
 
   reloadPage() {

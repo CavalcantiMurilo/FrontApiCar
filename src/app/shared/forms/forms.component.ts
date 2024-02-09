@@ -1,8 +1,9 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CarService} from "../../service/car.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
+import {ICar} from "../../model/ICar";
 
 @Component({
   selector: 'app-forms',
@@ -12,6 +13,7 @@ import {Router} from "@angular/router";
 export class FormsComponent {
 
   @Input() btnText!: string;
+  @Output() submit = new EventEmitter<ICar>();
 
   form: FormGroup;
   date = new Date().getFullYear();
@@ -47,6 +49,9 @@ export class FormsComponent {
     if(this.form.invalid){
       return;
     }
+
+    this.submit.emit(this.form.value);
+
     this.service.save(this.form.value).subscribe(item => this.result("Carro cadastrado com sucesso!"), error => this.result("Erro ao cadastrar carro!"));
     this.router.navigate(['/'])
 

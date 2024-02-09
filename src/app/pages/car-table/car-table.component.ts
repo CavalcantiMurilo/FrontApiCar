@@ -10,9 +10,10 @@ import {RegisterDialogComponent} from "../../shared/register-dialog/register-dia
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatPaginator} from "@angular/material/paginator";
+import {FormGroup} from "@angular/forms";
 
 @Component({
-  selector: 'app-inicial',
+  selector: 'app-carTable',
   templateUrl: './car-table.component.html',
   styleUrl: './car-table.component.css'
 })
@@ -23,6 +24,8 @@ export class CarTableComponent {
 
   columnsToDisplay: string[] = ['id', 'brand', 'model', 'year', 'color', 'actions'];
 
+  form = '';
+
  constructor(private carService: CarService, private dialog: MatDialog, private snackBar: MatSnackBar, private router: Router){
 
   this.carData = this.carService.list();
@@ -32,9 +35,10 @@ export class CarTableComponent {
 
 
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(UpdateDialogComponent, {
+  openDialog(id: number): void {
 
+    const dialogRef = this.dialog.open(UpdateDialogComponent, {
+      data: id
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -63,12 +67,16 @@ export class CarTableComponent {
   }
 
   onEdit(id: number){
-    this.openDialog();
-    const idCar: number = id; //todo
+    this.openDialog(id);
+    const idCar: number = id;
   }
 
-  outsideEdit(id: number){
-    this.router.navigate([`update/${id}`])
+  outsideEdit(car: ICar){
+    this.router.navigate([`update/${car.idCar}`])
+  }
+
+  filter(e: Event){
+   console.log(this.form)
   }
 
 }
